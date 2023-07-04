@@ -14,9 +14,9 @@ const BreakingNewsComponent = ({ news }: any) => {
     >
       <div className="bg-black text-white p-2 opacity-40">
         <p className="border-b-[1px] border-white ">
-          {news?.byline.slice(0, 30)}
+          {news?.byline?.slice(0, 30)}
         </p>
-        <p className="">{news?.title?.slice(0, 40)}</p>
+        <p className="">{news?.title?.slice(0, 50)}</p>
         <p>{getDate(news?.published_date)}</p>
       </div>
     </div>

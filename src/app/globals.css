@@ -18,3 +18,27 @@
   transition: all 0.7s ease-in-out 0.2s;
   text-decoration: underline;
 }
+
+.main-news-component {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  grid-template-rows: 1fr 1fr 1fr; /* Three rows */
+  grid-gap: 10px; /* Gap between grid items */
+}
+/* 
+.main-news-component:first-child {
+  grid-area: first;
+}
+.main-news-component:nth-child(2) {
+  grid-area: second;
+}
+.main-news-component:nth-child(3) {
+  grid-area: third;
+}
+.main-news-component:nth-child(4) {
+  grid-area: fourth;
+} */
+
+.main-news-component:first-child {
+  grid-row: span 2; /* Spanning three rows */
+}
