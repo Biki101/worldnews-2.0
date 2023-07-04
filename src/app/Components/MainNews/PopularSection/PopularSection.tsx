@@ -44,13 +44,13 @@ const PopularSection = () => {
                   alt="news-item"
                   width={300}
                   height={350}
-                  className="h-[100px] w-[auto] border-[2px] border-black"
+                  className="h-[auto] w-[full] border-[2px] border-black"
                 />
                 <div>
                   <p className=" border-black  text-[14px] border-b-[1px] ">
                     {items?.byline?.slice(0, 30)}
                   </p>
-                  <p className="">{items?.title?.slice(0, 70) + "..."}</p>
+                  <p className="">{items?.title}</p>
                   <p className="text-[12px]">
                     {getDate(items?.published_date)}
                   </p>
