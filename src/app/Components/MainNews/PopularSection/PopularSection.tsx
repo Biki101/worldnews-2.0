@@ -38,19 +38,19 @@ const PopularSection = () => {
         {data?.length !== 0 &&
           data?.map((items: any, index: any) => {
             return (
-              <div className="flex items-center gap-3" key={index}>
+              <div className="flex flex-col items-start gap-3" key={index}>
                 <Image
                   src={items?.multimedia?.[1]?.url || ""}
                   alt="news-item"
                   width={300}
                   height={350}
-                  className="h-[100px] w-[100px] border-[2px] border-black"
+                  className="h-[100px] w-[auto] border-[2px] border-black"
                 />
                 <div>
                   <p className=" border-black  text-[14px] border-b-[1px] ">
                     {items?.byline?.slice(0, 30)}
                   </p>
-                  <p className="">{items?.title?.slice(0, 25) + "..."}</p>
+                  <p className="">{items?.title?.slice(0, 70) + "..."}</p>
                   <p className="text-[12px]">
                     {getDate(items?.published_date)}
                   </p>
