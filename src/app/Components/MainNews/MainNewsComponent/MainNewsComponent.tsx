@@ -27,7 +27,7 @@ const MainNewsComponent = ({ news }: any) => {
         ?.filter((items: any, index: number) => 0 < index && index < 4)
         ?.map((items: any, index: any) => {
           return (
-            <div className="flex gap-3">
+            <div className="flex gap-3" key={index}>
               <Image
                 src={items?.multimedia?.[1]?.url || ""}
                 alt="news-item"
