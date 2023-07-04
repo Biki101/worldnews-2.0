@@ -34,7 +34,7 @@ const PopularSection = () => {
   return (
     <div className="w-1/4">
       <NewsTitle title="Popular News" />
-      <div className="pt-5 flex flex-col gap-3">
+      <div className="pt-5 flex flex-col gap-5">
         {data?.length !== 0 &&
           data?.map((items: any, index: any) => {
             return (

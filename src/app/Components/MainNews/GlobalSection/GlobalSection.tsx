@@ -11,6 +11,10 @@ const GlobalSection = async () => {
   const requiredSportsData = sportsData?.results?.filter(
     (items: any, index: any) => index < 4
   );
+  const moviesData = await getMoviesData();
+  const requiredMoviesData = moviesData?.results?.filter(
+    (items: any, index: any) => index < 4
+  );
 
   return (
     <div className=" w-3/4">
@@ -19,8 +23,12 @@ const GlobalSection = async () => {
         <MainNewsComponent news={requiredData} />
       </div>
       <div className="flex flex-col mt-5">
-        <NewsTitle title="Sports News" />
+        <NewsTitle title="Sports" />
         <MainNewsComponent news={requiredSportsData} />
+      </div>
+      <div className="flex flex-col mt-5">
+        <NewsTitle title="Movies" />
+        <MainNewsComponent news={requiredMoviesData} />
       </div>
     </div>
   );
@@ -38,6 +46,13 @@ async function getData() {
 async function getSportsData() {
   const res = await fetch(
     `${process.env.BASE_URL}/svc/topstories/v2/sports.json?api-key=d9XpTjsFp87bwBGJw7Qm9oUGikpKt1GZ`
+  );
+  return res.json();
+}
+
+async function getMoviesData() {
+  const res = await fetch(
+    `${process.env.BASE_URL}/svc/topstories/v2/movies.json?api-key=d9XpTjsFp87bwBGJw7Qm9oUGikpKt1GZ`
   );
   return res.json();
 }
