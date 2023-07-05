@@ -5,6 +5,7 @@ import MainNavBar from "./Components/MainNavBar/MainNavBar";
 import BreadSearch from "./Components/BreadSearch/BreadSearch";
 import BreakingNews from "./Components/BreakingNews/BreakingNews";
 import MainNews from "./Components/MainNews/MainNews";
+import Footer from "./Components/Footer/Footer";
 
 const fira = Fira_Sans({
   subsets: ["latin"],
@@ -15,14 +16,13 @@ const fira = Fira_Sans({
 export default function Home() {
   return (
     <div className={fira.className}>
-      <div className="mb-20">
-        <TopBar />
-        <HeroBanner />
-        <MainNavBar />
-        <BreadSearch />
-        <BreakingNews />
-        <MainNews />
-      </div>
+      <TopBar />
+      <HeroBanner />
+      <MainNavBar />
+      <BreadSearch />
+      <BreakingNews />
+      <MainNews />
+      <Footer />
     </div>
   );
 }
