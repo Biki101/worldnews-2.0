@@ -1,16 +1,61 @@
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 const MainNavBar = () => {
+  const route = usePathname();
+  console.log(route);
+
+  const activeStyle = "border-b-2 border-green-600 text-green-600";
   return (
     <div className="w-[1080px] m-auto p-[10px] flex gap-3 items-center justify-center  border-b-2 border-black">
-      <span className="cursor-pointer p-3 px-5 border-b-2 border-green-600 text-green-600">
+      <Link
+        href="/"
+        className={`cursor-pointer p-3 px-5 ${route === "/" && activeStyle}`}
+      >
         HOME
-      </span>
-      <span className="cursor-pointer p-3 px-5 ">GLOBAL</span>
-      <span className="cursor-pointer p-3 px-5 ">MOST POPULAR</span>
-      <span className="cursor-pointer p-3 px-5 ">CATEGORIES</span>
-      <span className="cursor-pointer p-3 px-5 ">ABOUT</span>
-      <span className="cursor-pointer p-3 px-5 ">CONTACT</span>
+      </Link>
+      <Link
+        href="/global"
+        className={`cursor-pointer p-3 px-5 ${
+          route === "/global" && activeStyle
+        }`}
+      >
+        GLOBAL
+      </Link>
+      <Link
+        href="/populars"
+        className={`cursor-pointer p-3 px-5 ${
+          route === "/populars" && activeStyle
+        }`}
+      >
+        MOST POPULAR
+      </Link>
+      <Link
+        href="/more"
+        className={`cursor-pointer p-3 px-5 ${
+          route === "/more" && activeStyle
+        }`}
+      >
+        CATEGORIES
+      </Link>
+      <Link
+        href="/about"
+        className={`cursor-pointer p-3 px-5 ${
+          route === "/about" && activeStyle
+        }`}
+      >
+        ABOUT
+      </Link>
+      <Link
+        href="/contact"
+        className={`cursor-pointer p-3 px-5 ${
+          route === "/contact" && activeStyle
+        }`}
+      >
+        CONTACT
+      </Link>
     </div>
   );
 };

@@ -16,13 +16,9 @@ const fira = Fira_Sans({
 export default function Home() {
   return (
     <div className={fira.className}>
-      <TopBar />
-      <HeroBanner />
-      <MainNavBar />
       <BreadSearch />
       <BreakingNews />
       <MainNews />
-      <Footer />
     </div>
   );
 }
