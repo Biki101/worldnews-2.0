@@ -1,3 +1,4 @@
+import BreadSearch from "./Components/BreadSearch/BreadSearch";
 import Footer from "./Components/Footer/Footer";
 import HeroBanner from "./Components/HeroBanner/HeroBanner";
 import MainNavBar from "./Components/MainNavBar/MainNavBar";
@@ -21,6 +22,8 @@ export default function RootLayout({
         <TopBar />
         <HeroBanner />
         <MainNavBar />
+        <BreadSearch />
+
         {children}
         <Footer />
       </body>
