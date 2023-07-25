@@ -23,7 +23,6 @@ export default function RootLayout({
         <HeroBanner />
         <MainNavBar />
         <BreadSearch />
-
         {children}
         <Footer />
       </body>

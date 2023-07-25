@@ -32,7 +32,7 @@ const PopularSection = () => {
       });
   };
   return (
-    <div className="w-1/4">
+    <div className="w-full">
       <NewsTitle title="Popular News" />
       <div className="pt-5 flex flex-col gap-5">
         {data?.length !== 0 &&

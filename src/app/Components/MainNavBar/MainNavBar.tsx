@@ -38,7 +38,7 @@ const MainNavBar = () => {
           route === "/more" && activeStyle
         }`}
       >
-        CATEGORIES
+        MORE
       </Link>
       <Link
         href="/about"

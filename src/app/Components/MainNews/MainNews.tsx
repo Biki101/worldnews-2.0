@@ -10,14 +10,18 @@ const MainNews = () => {
     <div className="w-[1080px] m-auto p-[20px]">
       <div className=" flex gap-5">
         <GlobalSection />
-        <PopularSection />
+        <div className="w-1/4">
+          <PopularSection />
+        </div>
       </div>
       <div className="flex justify-center m-10">
         <Banner />
       </div>
       <div className="flex gap-5">
         <LatestSection />
-        <FeaturedSection />
+        <div className="w-1/4">
+          <FeaturedSection />
+        </div>
       </div>
     </div>
   );

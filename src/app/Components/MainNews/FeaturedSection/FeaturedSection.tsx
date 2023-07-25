@@ -4,7 +4,7 @@ import { BiRightArrowAlt } from "react-icons/bi";
 
 const FeaturedSection = () => {
   return (
-    <div className="w-1/4">
+    <div className="w-full">
       <NewsTitle title="Featured" />
       <video controls className="p-5">
         <source src="/video/featured.mp4" type="video/mp4" />
