@@ -33,12 +33,12 @@ const MainNavBar = () => {
         MOST POPULAR
       </Link>
       <Link
-        href="/more"
+        href="/sports"
         className={`cursor-pointer p-3 px-5 ${
-          route === "/more" && activeStyle
+          route === "/sports" && activeStyle
         }`}
       >
-        MORE
+        SPORTS
       </Link>
       <Link
         href="/about"
