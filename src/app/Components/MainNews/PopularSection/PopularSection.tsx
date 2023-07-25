@@ -6,7 +6,6 @@ import { getDate } from "../../../../app/utils/getDate";
 import axios from "axios";
 const PopularSection = () => {
   const [data, setData] = useState([]);
-  console.log(data);
   useEffect(() => {
     fetchData();
   }, []);
@@ -64,10 +63,3 @@ const PopularSection = () => {
 };
 
 export default PopularSection;
-
-async function getData() {
-  const res = await fetch(
-    `${process.env.BASE_URL}/svc/topstories/v2/popular.json?api-key=d9XpTjsFp87bwBGJw7Qm9oUGikpKt1GZ`
-  );
-  return res.json();
-}
