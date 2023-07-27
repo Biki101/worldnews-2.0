@@ -5,7 +5,6 @@ import React from "react";
 
 const MainNavBar = () => {
   const route = usePathname();
-  console.log(route);
 
   const activeStyle = "border-b-2 border-green-600 text-green-600";
   return (
