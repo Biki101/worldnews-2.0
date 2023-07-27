@@ -7,12 +7,12 @@ import PopularMain from "./popular-main/PopularMain";
 const Populars = async () => {
   const data = await getData();
   const requiredData = data?.results?.filter(
-    (items: any, index: any) => index < 4
+    (items: any, index: any) => index < 21
   );
   return (
     <div className=" flex w-[1080px] m-auto p-5 gap-5">
       <PopularMain data={requiredData} />
-      <div className="w-1/4">
+      <div className="w-1/4 flex flex-col gap-10">
         <PopularSection />
         <FeaturedSection />
       </div>

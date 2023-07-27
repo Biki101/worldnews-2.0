@@ -10,7 +10,6 @@ import { FiHelpCircle } from "react-icons/fi";
 
 const BreadCrumbs = () => {
   const pathname = usePathname();
-  console.log(pathname);
   return (
     <div className="flex items-center gap-3 text-[18px] opacity-60">
       <div className="flex items-center gap-2">

@@ -7,13 +7,13 @@ import GlobalMain from "./global-main/GlobalMain";
 const page = async () => {
   const data = await getData();
   const requiredData = data?.results?.filter(
-    (items: any, index: any) => index < 4
+    (items: any, index: any) => index < 21
   );
 
   return (
     <div className=" w-[1080px] m-auto p-5 flex gap-5">
       <GlobalMain data={requiredData} />
-      <div className="w-1/4">
+      <div className="w-1/4 flex flex-col gap-10">
         <PopularSection />
         <FeaturedSection />
       </div>
