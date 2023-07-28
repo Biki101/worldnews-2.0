@@ -7,7 +7,7 @@ import MoreMain from "./more-main/MoreMain";
 const More = async () => {
   const data = await getData();
   const requiredData = data?.results?.filter(
-    (items: any, index: any) => index < 21
+    (items: any, index: any) => index < 25
   );
   return (
     <div className="flex gap-5 w-[1080px] m-auto p-5">
