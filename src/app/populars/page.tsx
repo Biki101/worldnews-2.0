@@ -7,7 +7,7 @@ import PopularMain from "./popular-main/PopularMain";
 const Populars = async () => {
   const data = await getData();
   const requiredData = data?.results?.filter(
-    (items: any, index: any) => index < 21
+    (items: any, index: any) => index < 25
   );
   return (
     <div className=" flex w-[1080px] m-auto p-5 gap-5">

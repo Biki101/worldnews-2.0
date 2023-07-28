@@ -13,6 +13,7 @@ const NewsMain = ({ data }: any) => {
   const [requiredNews, setRequiredNews] = useState(
     data.slice(startIndex, endIndex)
   );
+  console.log(requiredNews);
 
   useEffect(() => {
     setRequiredNews(data.slice(startIndex, endIndex));
@@ -66,7 +67,6 @@ const NewsMain = ({ data }: any) => {
 
       {/*-------------- remaining component --------------- */}
       {requiredNews?.map((news: any, index: any) => {
-        console.log(news);
         return (
           <div key={index}>
             <div
