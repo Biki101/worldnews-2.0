@@ -7,7 +7,7 @@ import LatestSection from "./LatestSection/LatestSection";
 
 const MainNews = () => {
   return (
-    <div className="w-[1080px] m-auto p-[20px]">
+    <div className="w-[1080px] m-auto p-[20px] hidden">
       <div className=" flex gap-5">
         <GlobalSection />
         <div className="w-1/4">

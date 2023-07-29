@@ -10,7 +10,7 @@ const fira = Fira_Sans({
 
 export default function Home() {
   return (
-    <div className={`${fira.className} hidden`}>
+    <div className={`${fira.className}`}>
       <BreakingNews />
       <MainNews />
     </div>
