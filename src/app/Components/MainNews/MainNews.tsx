@@ -15,11 +15,9 @@ const MainNews = () => {
       <div className="flex justify-center m-10">
         <Banner />
       </div>
-      <div className="lg:flex gap-5 hidden">
+      <div className="flex flex-col lg:flex-row gap-5">
         <LatestSection />
-        <div className="w-1/4">
-          <FeaturedSection />
-        </div>
+        <FeaturedSection />
       </div>
     </div>
   );

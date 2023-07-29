@@ -28,9 +28,9 @@ const LatestSection = () => {
       });
   }, []);
   return (
-    <div className="w-3/4">
+    <div className="lg:w-3/4">
       <NewsTitle title="Latest Articles" />
-      <ul className="grid grid-cols-2 gap-3 mt-3">
+      <ul className="grid grid-cols-1 lg:grid-cols-2 gap-3 mt-3">
         {news
           ?.filter((items: any, index: any) => index < 6)
           ?.map((items: any, index: any) => {
