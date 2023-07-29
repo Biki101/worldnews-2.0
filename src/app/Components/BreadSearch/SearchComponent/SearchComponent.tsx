@@ -3,7 +3,7 @@ import { MdOutlineTravelExplore } from "react-icons/md";
 
 const SearchComponent = () => {
   return (
-    <div className="flex items-center">
+    <div className="flex items-center self-end">
       <input
         type="text"
         placeholder="What can I help you with today?"
