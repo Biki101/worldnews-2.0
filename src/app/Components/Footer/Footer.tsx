@@ -6,7 +6,7 @@ import FooterCategories from "./FooterOtherLinks/FooterOtherLinks";
 const Footer = () => {
   return (
     <div className="bg-[#222222] text-white">
-      <div className="w-[1080px] m-auto p-[20px]  flex gap-5 justify-between pt-5">
+      <div className="w-full lg:w-[1080px] m-auto p-[20px]  flex flex-col sm:flex-row sm:flex-wrap gap-10 justify-between pt-5">
         <FooterAbout />
         <FooterPopularPost />
         <FooterCategories />

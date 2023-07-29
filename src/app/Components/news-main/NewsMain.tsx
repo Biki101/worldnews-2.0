@@ -13,7 +13,6 @@ const NewsMain = ({ data }: any) => {
   const [requiredNews, setRequiredNews] = useState(
     data.slice(startIndex, endIndex)
   );
-  console.log(requiredNews);
 
   useEffect(() => {
     setRequiredNews(data.slice(startIndex, endIndex));

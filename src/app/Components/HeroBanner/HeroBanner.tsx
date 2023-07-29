@@ -3,7 +3,7 @@ import React from "react";
 
 const HeroBanner = () => {
   return (
-    <div className="w-[1080px] m-auto p-[20px] flex justify-between">
+    <div className="w-[1080px] m-auto p-[20px] justify-between hidden lg:flex">
       {/* -----------logo ------------- */}
       <Image
         src="/logo.png"

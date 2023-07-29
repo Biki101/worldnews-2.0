@@ -17,7 +17,7 @@ const GlobalSection = async () => {
   );
 
   return (
-    <div className=" w-3/4">
+    <div className="w-full lg:w-3/4">
       <div className="flex flex-col">
         <NewsTitle title="Global News" />
         <MainNewsComponent news={requiredData} />

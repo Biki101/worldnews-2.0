@@ -7,8 +7,10 @@ const TopBar = () => {
     <div className="bg-black text-white text-[18px] flex items-center">
       <div className="w-[1080px] m-auto p-[20px] flex gap-3 items-center justify-between">
         <span className="flex gap-3 items-center">
-          <span>Kathmandu, Nepal HI 58 ℃ LO 50 ℃</span>
-          <ul className="flex gap-3">
+          <span className="hidden md:block">
+            Kathmandu, Nepal HI 58 ℃ LO 50 ℃
+          </span>
+          <ul className="md:flex gap-3 hidden">
             <li className="link">About</li>
             <li className="link">Contact</li>
             <li className="link">Sign Up</li>

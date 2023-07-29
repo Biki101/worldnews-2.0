@@ -1,8 +1,7 @@
 import BreadSearch from "./Components/BreadSearch/BreadSearch";
+import DeskTopBar from "./Components/DesktopTopBar/DeskTopBar";
 import Footer from "./Components/Footer/Footer";
-import HeroBanner from "./Components/HeroBanner/HeroBanner";
 import MainNavBar from "./Components/MainNavBar/MainNavBar";
-import TopBar from "./Components/TopBar/TopBar";
 import "./globals.css";
 import { Fira_Sans } from "next/font/google";
 
@@ -19,8 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={fira.className}>
-        <TopBar />
-        <HeroBanner />
+        <DeskTopBar />
         <MainNavBar />
         <BreadSearch />
         {children}

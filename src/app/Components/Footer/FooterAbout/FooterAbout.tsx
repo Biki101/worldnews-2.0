@@ -5,7 +5,7 @@ import { BsFacebook, BsPinterest, BsTwitter, BsYoutube } from "react-icons/bs";
 
 const FooterAbout = () => {
   return (
-    <div className="flex flex-col gap-5 w-[450px]">
+    <div className="flex flex-col gap-5 w-full sm:w-[450px]">
       <Image src="/logo.png" alt="logo.png" height={150} width={150} />
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. A sint
