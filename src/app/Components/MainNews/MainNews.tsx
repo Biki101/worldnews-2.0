@@ -7,17 +7,15 @@ import LatestSection from "./LatestSection/LatestSection";
 
 const MainNews = () => {
   return (
-    <div className="w-[1080px] m-auto p-[20px] hidden">
-      <div className=" flex gap-5">
+    <div className="w-full lg:w-[1080px] m-auto p-[20px]">
+      <div className="flex flex-col lg:flex-row gap-5">
         <GlobalSection />
-        <div className="w-1/4">
-          <PopularSection />
-        </div>
+        <PopularSection />
       </div>
       <div className="flex justify-center m-10">
         <Banner />
       </div>
-      <div className="flex gap-5">
+      <div className="lg:flex gap-5 hidden">
         <LatestSection />
         <div className="w-1/4">
           <FeaturedSection />

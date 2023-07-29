@@ -4,10 +4,10 @@ import React from "react";
 
 const MainNewsComponent = ({ news }: any) => {
   return (
-    <div className="grid grid-cols-2 grid-rows-3 gap-3 mt-3">
+    <div className="grid lg:grid-cols-2 grid-rows-3 gap-3 mt-3 w-full">
       {/* first child */}
       <div
-        className={`border-2 border-black h-full flex flex-col justify-end row-span-3`}
+        className={`border-2 border-black h-[500px] lg:h-full flex flex-col justify-end row-span-3`}
         style={{
           backgroundImage: `url(${news[0]?.multimedia?.[1]?.url || ""})`,
           backgroundPosition: "center",
@@ -35,7 +35,7 @@ const MainNewsComponent = ({ news }: any) => {
                 height={350}
                 className="h-[100px] w-[100px] border-[2px] border-black"
               />
-              <div>
+              <div className="flex-grow">
                 <p className=" border-black  text-[14px] border-b-[1px] ">
                   {items?.byline?.slice(0, 30)}
                 </p>
