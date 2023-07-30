@@ -1,3 +1,4 @@
+import Head from "next/head";
 import BreadSearch from "./Components/BreadSearch/BreadSearch";
 import DeskTopBar from "./Components/DesktopTopBar/DeskTopBar";
 import Footer from "./Components/Footer/Footer";
