@@ -3,9 +3,9 @@ import NewsTitle from "../Components/NewsTitle/NewsTitle";
 
 const About = () => {
   return (
-    <div className="w-[1080px] m-auto p-5">
+    <div className="w-full lg:w-[1080px] m-auto p-5">
       <NewsTitle title="About US" />
-      <div className="about-container flex mt-10">
+      <div className="about-container flex lg:flex-row flex-col mt-10">
         <div className="about-content">
           Welcome to our news website! We are dedicated to providing accurate
           and up-to-date information to our readers. Our team of experienced
@@ -30,7 +30,7 @@ const About = () => {
           are committed to delivering high-quality journalism and hope you will
           join us on this journey.
         </div>
-        <div className="our-location">
+        <div className="our-location flex justify-center">
           <div className="gmap_canvas">
             <iframe
               width="350"

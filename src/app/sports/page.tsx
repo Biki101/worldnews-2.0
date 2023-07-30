@@ -10,12 +10,9 @@ const More = async () => {
     (items: any, index: any) => index < 25
   );
   return (
-    <div className="flex gap-5 w-[1080px] m-auto p-5">
+    <div className="flex flex-col lg:flex-row gap-5 w-full lg:w-[1080px] m-auto p-5">
       <MoreMain data={requiredData} />
-      <div className="w-1/4 flex flex-col gap-10">
-        <PopularSection />
-        <FeaturedSection />
-      </div>
+      <PopularSection />
     </div>
   );
 };

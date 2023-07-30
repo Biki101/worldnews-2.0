@@ -3,11 +3,12 @@ import { IoIosSend } from "react-icons/io";
 import NewsTitle from "../Components/NewsTitle/NewsTitle";
 
 const Contact = () => {
-  const inputStyle = "outline-none border-[1px] border-black p-2 w-3/4";
+  const inputStyle =
+    "outline-none border-[1px] border-black p-2 w-full lg:w-3/4";
   return (
-    <div className="w-[1080px] m-auto p-5">
+    <div className="w-full lg:w-[1080px] m-auto p-5">
       <NewsTitle title="Contact US" />
-      <div className="contact-container flex mt-10">
+      <div className="contact-container flex flex-col lg:flex-row mt-10 gap-5">
         <form className="contact-form w-full flex flex-col gap-3">
           {/* --------Name ---------- */}
           <span className="flex flex-col">
@@ -61,7 +62,7 @@ const Contact = () => {
               name="message"
               id="message"
               cols={30}
-              rows={10}
+              rows={7}
               placeholder="Message"
               className={`${inputStyle}`}
             ></textarea>
@@ -79,7 +80,7 @@ const Contact = () => {
           </button>
           {/* -------Send Button End ------- */}
         </form>
-        <div className="our-location">
+        <div className="our-location flex justify-center">
           <div className="gmap_canvas">
             <iframe
               width="350"

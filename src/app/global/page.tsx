@@ -11,12 +11,9 @@ const page = async () => {
   );
 
   return (
-    <div className=" w-[1080px] m-auto p-5 flex gap-5">
+    <div className="m-auto p-5 flex flex-col lg:flex-row w-full lg:w-[1080px] gap-5">
       <GlobalMain data={requiredData} />
-      <div className="w-1/4 flex flex-col gap-10">
-        <PopularSection />
-        <FeaturedSection />
-      </div>
+      <PopularSection />
     </div>
   );
 };

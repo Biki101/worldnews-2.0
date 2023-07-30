@@ -10,12 +10,9 @@ const Populars = async () => {
     (items: any, index: any) => index < 25
   );
   return (
-    <div className=" flex w-[1080px] m-auto p-5 gap-5">
+    <div className=" flex-col lg:flex-row w-full lg:w-[1080px] m-auto p-5 gap-5">
       <PopularMain data={requiredData} />
-      <div className="w-1/4 flex flex-col gap-10">
-        <PopularSection />
-        <FeaturedSection />
-      </div>
+      <PopularSection />
     </div>
   );
 };
