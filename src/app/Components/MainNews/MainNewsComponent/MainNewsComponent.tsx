@@ -9,7 +9,7 @@ const MainNewsComponent = ({ news }: any) => {
       <div
         className={`border-2 border-black h-[500px] lg:h-full flex flex-col justify-end row-span-3`}
         style={{
-          backgroundImage: `url(${news[0]?.multimedia?.[1]?.url || ""})`,
+          backgroundImage: `url(${news?.[0]?.multimedia?.[1]?.url || ""})`,
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}
