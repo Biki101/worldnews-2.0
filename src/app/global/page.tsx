@@ -1,10 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import PopularSection from "../Components/MainNews/PopularSection/PopularSection";
 import GlobalMain from "./global-main/GlobalMain";
 import axios from "axios";
 
-const page = () => {
+const Global = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -34,4 +34,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Global;
