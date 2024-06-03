@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import NewsTitle from "../../NewsTitle/NewsTitle";
 import Image from "next/image";
-import { getDate } from "../../../../app/utils/getDate";
+import { formatDate, getDate } from "../../../../app/utils/getDate";
 import axios from "axios";
 const PopularSection = () => {
   const [data, setData] = useState([]);
@@ -10,26 +10,20 @@ const PopularSection = () => {
     fetchData();
   }, []);
 
-  const fetchData = async () => {
-    let config = {
-      method: "get",
-      maxBodyLength: Infinity,
-      url: "https://api.nytimes.com/svc/topstories/v2/opinion.json?api-key=d9XpTjsFp87bwBGJw7Qm9oUGikpKt1GZ",
-      headers: {},
-    };
-
+  async function fetchData() {
     axios
-      .request(config)
-      .then((response) => {
-        const data = response?.data;
-        if (data?.status == "OK") {
-          setData(data?.results?.slice(0, 4));
-        }
+      .get(
+        "https://newsapi.org/v2/top-headlines?country=us&apiKey=c07ec7ad52774adfa92c9e9fd31e6af5"
+      )
+      .then(function (response) {
+        // handle success
+        setData(response?.data?.articles.slice(0, 4));
       })
-      .catch((error) => {
+      .catch(function (error) {
+        // handle error
         console.log(error);
       });
-  };
+  }
   return (
     <div className="w-full lg:w-1/4">
       <NewsTitle title="Popular News" />
@@ -42,7 +36,7 @@ const PopularSection = () => {
                 key={index}
               >
                 <Image
-                  src={items?.multimedia?.[1]?.url || ""}
+                  src={items?.urlToImage || "/logo.png"}
                   alt="news-item"
                   width={300}
                   height={350}
@@ -50,11 +44,11 @@ const PopularSection = () => {
                 />
                 <div className="w-full">
                   <p className=" border-black  text-[14px] border-b-[1px] ">
-                    {items?.byline?.slice(0, 30)}
+                    {items?.author?.slice(0, 30)}
                   </p>
                   <p className="">{items?.title}</p>
                   <p className="text-[12px]">
-                    {getDate(items?.published_date)}
+                    {formatDate(items?.published_date)}
                   </p>
                 </div>
               </div>

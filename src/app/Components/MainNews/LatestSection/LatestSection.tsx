@@ -2,31 +2,30 @@
 import React, { useEffect, useState } from "react";
 import NewsTitle from "../../NewsTitle/NewsTitle";
 import axios from "axios";
-import { getDate } from "../../../../app/utils/getDate";
+import { formatDate, getDate } from "../../../../app/utils/getDate";
 
 const LatestSection = () => {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
-    let config = {
-      method: "get",
-      maxBodyLength: Infinity,
-      url: "https://api.nytimes.com/svc/topstories/v2/world.json?api-key=d9XpTjsFp87bwBGJw7Qm9oUGikpKt1GZ",
-      headers: {},
-    };
+    getData();
+  }, []);
 
+  async function getData() {
     axios
-      .request(config)
-      .then((response) => {
-        const data = response?.data;
-        if (data?.status == "OK") {
-          setNews(data?.results);
-        }
+      .get(
+        "https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=c07ec7ad52774adfa92c9e9fd31e6af5"
+      )
+      .then(function (response) {
+        // handle success
+        setNews(response?.data?.articles);
       })
-      .catch((error) => {
+      .catch(function (error) {
+        // handle error
         console.log(error);
       });
-  }, []);
+  }
+
   return (
     <div className="lg:w-3/4">
       <NewsTitle title="Latest Articles" />
@@ -38,7 +37,7 @@ const LatestSection = () => {
               <div
                 className={`border-2 border-black h-[300px] flex flex-col justify-end row-span-3`}
                 style={{
-                  backgroundImage: `url(${items?.multimedia?.[1]?.url || ""})`,
+                  backgroundImage: `url(${items?.urlToImage || "/logo.png"})`,
                   backgroundPosition: "center",
                   backgroundSize: "cover",
                 }}
@@ -46,10 +45,10 @@ const LatestSection = () => {
               >
                 <div className="bg-black text-white p-2 opacity-40">
                   <p className="border-b-[1px] border-white ">
-                    {items?.byline?.slice(0, 30)}
+                    {items?.author?.slice(0, 30)}
                   </p>
                   <p className="">{items?.title?.slice(0, 80)}</p>
-                  <p>{getDate(items?.published_date)}</p>
+                  <p>{formatDate(items?.published_date)}</p>
                 </div>
               </div>
             );
@@ -60,10 +59,3 @@ const LatestSection = () => {
 };
 
 export default LatestSection;
-
-async function getData() {
-  const res = await fetch(
-    `${process.env.BASE_URL}/svc/topstories/v2/world.json?api-key=d9XpTjsFp87bwBGJw7Qm9oUGikpKt1GZ`
-  );
-  return res.json();
-}

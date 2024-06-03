@@ -1,27 +1,38 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PopularSection from "../Components/MainNews/PopularSection/PopularSection";
 import FeaturedSection from "../Components/MainNews/FeaturedSection/FeaturedSection";
 import PopularMain from "./popular-main/PopularMain";
+import axios from "axios";
 
-const Populars = async () => {
-  const data = await getData();
-  const requiredData = data?.results?.filter(
-    (items: any, index: any) => index < 25
-  );
+const Populars = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+  async function fetchData() {
+    axios
+      .get(
+        "https://newsapi.org/v2/top-headlines?country=us&apiKey=c07ec7ad52774adfa92c9e9fd31e6af5"
+      )
+      .then(function (response) {
+        // handle success
+        setData(response?.data?.articles.slice(0, 20));
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  }
+
   return (
     <div className=" flex-col lg:flex-row w-full lg:w-[1080px] m-auto p-5 gap-5">
-      <PopularMain data={requiredData} />
-      <PopularSection />
+      <PopularMain data={data} />
+      {/* <PopularSection /> */}
     </div>
   );
 };
 
 export default Populars;
-
-async function getData() {
-  const res = await fetch(
-    `${process.env.BASE_URL}/svc/topstories/v2/opinion.json?api-key=d9XpTjsFp87bwBGJw7Qm9oUGikpKt1GZ`
-  );
-  return res.json();
-}

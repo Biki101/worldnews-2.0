@@ -1,5 +1,5 @@
 "use client";
-import { getDate } from "@/app/utils/getDate";
+import { formatDate, getDate } from "@/app/utils/getDate";
 import React, { useEffect, useRef, useState } from "react";
 import {
   BsFillArrowLeftCircleFill,
@@ -7,16 +7,8 @@ import {
 } from "react-icons/bs";
 
 const NewsMain = ({ data }: any) => {
-  const news = useRef(data);
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(4);
-  const [requiredNews, setRequiredNews] = useState(
-    data.slice(startIndex, endIndex)
-  );
-
-  useEffect(() => {
-    setRequiredNews(data.slice(startIndex, endIndex));
-  }, [startIndex, endIndex]);
 
   const handleNext = () => {
     if (startIndex < 16) {
@@ -37,35 +29,43 @@ const NewsMain = ({ data }: any) => {
     }
   };
 
+  console.log(startIndex, endIndex);
+
   return (
     <>
       {/*-------- first component -------------*/}
-      <>
-        <div
-          className={`border-2 border-black h-[500px] flex flex-col justify-end row-span-3 mt-5`}
-          style={{
-            backgroundImage: `url(${
-              data[endIndex + 1]?.multimedia?.[1]?.url || ""
-            })`,
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-          }}
-        ></div>
-        <div className="p-2">
-          <p className="border-b-[1px] border-black font-bold">
-            {data[endIndex + 1]?.title}
-          </p>
-          <p className="opacity-40">{data[endIndex + 1]?.byline}</p>
-          <p className="my-2">{data[endIndex + 1]?.abstract}</p>
-          <p className="font-bold opacity-60">
-            {getDate(data[endIndex + 1]?.published_date)}
-          </p>
-        </div>
-      </>
+      {data
+        .filter(
+          (item: any, index: any) => startIndex <= index && index < endIndex
+        )
+        .map((items: any) => {
+          return (
+            <>
+              <div
+                className={`border-2 border-black h-[500px] flex flex-col justify-end row-span-3 mt-5`}
+                style={{
+                  backgroundImage: `url(${items?.urlToImage || "/logo.png"})`,
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                }}
+              ></div>
+              <div className="p-2">
+                <p className="border-b-[1px] border-black font-bold">
+                  {items?.title}
+                </p>
+                <p className="opacity-40">{items?.author}</p>
+                <p className="my-2">{items?.description}</p>
+                <p className="font-bold opacity-60">
+                  {formatDate(items?.published_date)}
+                </p>
+              </div>
+            </>
+          );
+        })}
       {/*-------- first component end -------------*/}
 
       {/*-------------- remaining component --------------- */}
-      {requiredNews?.map((news: any, index: any) => {
+      {/* {requiredNews?.map((news: any, index: any) => {
         return (
           <div key={index}>
             <div
@@ -89,7 +89,7 @@ const NewsMain = ({ data }: any) => {
             </div>
           </div>
         );
-      })}
+      })} */}
       {/*-------------- remaining component end --------------- */}
 
       {/* -------- Pagination --------- */}

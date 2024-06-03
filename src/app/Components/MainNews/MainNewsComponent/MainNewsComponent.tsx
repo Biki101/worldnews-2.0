@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getDate } from "../../../../app/utils/getDate";
+import { formatDate, getDate } from "../../../../app/utils/getDate";
 import React from "react";
 
 const MainNewsComponent = ({ news }: any) => {
@@ -9,17 +9,17 @@ const MainNewsComponent = ({ news }: any) => {
       <div
         className={`border-2 border-black h-[500px] lg:h-full flex flex-col justify-end row-span-3`}
         style={{
-          backgroundImage: `url(${news?.[0]?.multimedia?.[1]?.url || ""})`,
+          backgroundImage: `url(${news?.[0]?.urlToImage || "/logo.png"})`,
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}
       >
         <div className="bg-black text-white p-2 opacity-40">
           <p className="border-b-[1px] border-white ">
-            {news[0]?.byline?.slice(0, 30)}
+            {news[0]?.author?.slice(0, 30)}
           </p>
           <p className="">{news[0]?.title?.slice(0, 50)}</p>
-          <p>{getDate(news[0]?.published_date)}</p>
+          <p>{formatDate(news[0]?.published_date)}</p>
         </div>
       </div>
       {/* first child End */}
@@ -29,7 +29,7 @@ const MainNewsComponent = ({ news }: any) => {
           return (
             <div className="flex gap-3" key={index}>
               <Image
-                src={items?.multimedia?.[1]?.url || ""}
+                src={items?.urlToImage || "/logo.png"}
                 alt="news-item"
                 width={300}
                 height={350}
@@ -37,10 +37,10 @@ const MainNewsComponent = ({ news }: any) => {
               />
               <div className="flex-grow">
                 <p className=" border-black  text-[14px] border-b-[1px] ">
-                  {items?.byline?.slice(0, 30)}
+                  {items?.author?.slice(0, 30)}
                 </p>
                 <p className="">{items?.title?.slice(0, 60) + "..."}</p>
-                <p>{getDate(items?.published_date)}</p>
+                <p>{formatDate(items?.published_date)}</p>
               </div>
             </div>
           );

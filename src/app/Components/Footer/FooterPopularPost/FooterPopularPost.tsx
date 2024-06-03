@@ -3,31 +3,29 @@ import React, { useEffect, useState } from "react";
 import MainNewsComponent from "../../MainNews/MainNewsComponent/MainNewsComponent";
 import axios from "axios";
 import Image from "next/image";
-import { getDate } from "../../../../app/utils/getDate";
+import { formatDate, getDate } from "../../../../app/utils/getDate";
 
 const FooterPopularPost = () => {
   const [data, setData] = useState<any>(null);
 
   useEffect(() => {
-    let config = {
-      method: "get",
-      maxBodyLength: Infinity,
-      url: `https://api.nytimes.com/svc/topstories/v2/opinion.json?api-key=d9XpTjsFp87bwBGJw7Qm9oUGikpKt1GZ`,
-      headers: {},
-    };
+    fetchData();
+  }, []);
 
+  async function fetchData() {
     axios
-      .request(config)
-      .then((response) => {
-        const temp = response?.data;
-        if (temp?.status === "OK") {
-          setData(temp?.results);
-        }
+      .get(
+        "https://newsapi.org/v2/top-headlines?country=us&apiKey=c07ec7ad52774adfa92c9e9fd31e6af5"
+      )
+      .then(function (response) {
+        // handle success
+        setData(response?.data?.articles.slice(0, 4));
       })
-      .catch((error) => {
+      .catch(function (error) {
+        // handle error
         console.log(error);
       });
-  }, []);
+  }
 
   const requiredData = data?.filter((item: any, index: any) => index < 3);
 
@@ -38,17 +36,17 @@ const FooterPopularPost = () => {
         {requiredData?.map((items: any, index: any) => (
           <li className="flex items-center gap-2" key={index}>
             <Image
-              src={items?.multimedia?.[2]?.url}
+              src={items?.urlToImage || "/logo.png"}
               alt="news-image"
               width={100}
               height={100}
             />
             <div>
               <p className=" border-white text-[14px] border-b-[1px] ">
-                {items?.byline?.slice(0, 30)}
+                {items?.author?.slice(0, 30)}
               </p>
               <p className="">{items?.title?.slice(0, 20)}</p>
-              <p>{getDate(items?.published_date)}</p>
+              <p>{formatDate(items?.published_date)}</p>
             </div>
           </li>
         ))}
