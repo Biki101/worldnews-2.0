@@ -1,30 +1,8 @@
-"use client";
-import React, { useEffect, useState } from "react";
 import NewsTitle from "../../NewsTitle/NewsTitle";
-import axios from "axios";
-import { formatDate, getDate } from "../../../../app/utils/getDate";
+import { formatDate, getDate, healthNews } from "../../../../app/utils/getDate";
 
 const LatestSection = () => {
-  const [news, setNews] = useState([]);
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  async function getData() {
-    axios
-      .get(
-        "https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=c07ec7ad52774adfa92c9e9fd31e6af5"
-      )
-      .then(function (response) {
-        // handle success
-        setNews(response?.data?.articles);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      });
-  }
+  const news = healthNews.articles.slice(0, 4);
 
   return (
     <div className="lg:w-3/4">

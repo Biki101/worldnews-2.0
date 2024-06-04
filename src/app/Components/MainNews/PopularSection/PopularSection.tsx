@@ -1,29 +1,14 @@
-"use client";
-import React, { useEffect, useState } from "react";
 import NewsTitle from "../../NewsTitle/NewsTitle";
 import Image from "next/image";
-import { formatDate, getDate } from "../../../../app/utils/getDate";
-import axios from "axios";
-const PopularSection = () => {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    fetchData();
-  }, []);
+import {
+  formatDate,
+  getDate,
+  topHeadlines,
+} from "../../../../app/utils/getDate";
 
-  async function fetchData() {
-    axios
-      .get(
-        "https://newsapi.org/v2/top-headlines?country=us&apiKey=c07ec7ad52774adfa92c9e9fd31e6af5"
-      )
-      .then(function (response) {
-        // handle success
-        setData(response?.data?.articles.slice(0, 4));
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      });
-  }
+const PopularSection = () => {
+  const data = topHeadlines.articles.slice(0, 4);
+
   return (
     <div className="w-full lg:w-1/4">
       <NewsTitle title="Popular News" />

@@ -1,36 +1,8 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
+import { topHeadlines } from "@/app/utils/getDate";
 import BreakingNewsComponent from "./BreakingNewsComponent/BreakingNewsComponent";
-import axios from "axios";
 
 const BreakingNews = () => {
-  // const data: any = getData() || [];
-  // console.log(data);
-  // const requiredData: any = data?.results?.filter(
-  //   (items: any, index: any) => index < 4
-  // );
-
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  async function getData() {
-    axios
-      .get(
-        "https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=c07ec7ad52774adfa92c9e9fd31e6af5"
-      )
-      .then(function (response) {
-        // handle success
-        setData(response?.data?.articles);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      });
-  }
+  const data = topHeadlines?.articles;
 
   return (
     <div className="w-full lg:w-[1080px] m-auto p-[20px]">

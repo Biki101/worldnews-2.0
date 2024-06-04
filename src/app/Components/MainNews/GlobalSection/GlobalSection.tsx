@@ -1,76 +1,11 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
+import { globalNews, moviesNews, sportsNews } from "@/app/utils/getDate";
 import NewsTitle from "../../NewsTitle/NewsTitle";
 import MainNewsComponent from "../MainNewsComponent/MainNewsComponent";
-import axios from "axios";
 
 const GlobalSection = () => {
-  // const data =  getData();
-  // const requiredData = data?.results?.filter(
-  //   (items: any, index: any) => index < 4
-  // );
-  // const sportsData =  getSportsData();
-  // const requiredSportsData = sportsData?.results?.filter(
-  //   (items: any, index: any) => index < 4
-  // );
-  // const moviesData =  getMoviesData();
-  // const requiredMoviesData = moviesData?.results?.filter(
-  //   (items: any, index: any) => index < 4
-  // );
-
-  const [data, setData] = useState([]);
-  const [sportsData, setSportsData] = useState([]);
-  const [moviesData, setMoviesData] = useState([]);
-
-  useEffect(() => {
-    getData();
-    getSportsData();
-    getMoviesData();
-  }, []);
-
-  async function getData() {
-    axios
-      .get(
-        "https://newsapi.org/v2/everything?q=temperature&apiKey=c07ec7ad52774adfa92c9e9fd31e6af5"
-      )
-      .then(function (response) {
-        // handle success
-        setData(response?.data?.articles.slice(0, 4));
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      });
-  }
-  async function getSportsData() {
-    axios
-      .get(
-        "https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=c07ec7ad52774adfa92c9e9fd31e6af5"
-      )
-      .then(function (response) {
-        // handle success
-        setSportsData(response?.data?.articles.slice(0, 4));
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      });
-  }
-  async function getMoviesData() {
-    axios
-      .get(
-        "https://newsapi.org/v2/top-headlines?country=in&category=entertainment&apiKey=c07ec7ad52774adfa92c9e9fd31e6af5"
-      )
-      .then(function (response) {
-        // handle success
-        setMoviesData(response?.data?.articles.slice(0, 4));
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      });
-  }
+  const data = globalNews.articles.slice(0, 4);
+  const sportsData = sportsNews.articles.slice(0, 4);
+  const moviesData = moviesNews.articles.slice(0, 4);
 
   return (
     <div className="w-full lg:w-3/4">
